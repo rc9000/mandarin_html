@@ -13,14 +13,12 @@ body {
     font-size: 2.2em;
     line-height: 1.8;
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
     padding: 0.5em 0.8em;
 }
 
 .play-button {
     position: absolute;
-    left: -2em;
+    left: -1.0em;
     top: 50%;
     transform: translateY(-50%);
     background: none;
@@ -53,7 +51,7 @@ body {
     left: 0;
     right: 0;
     bottom: -2.2em;
-    font-size: 0.6em;
+    font-size: 0.5em;
     color: #333;
     background: rgba(255, 255, 150, 0.5);
     border-radius: 8px;
@@ -86,7 +84,7 @@ body {
     transform: translateX(-50%);
     background: rgba(100, 180, 255, 0.18);
     color: #222;
-    font-size: 0.45em;
+    font-size: 0.5em;
     border-radius: 6px;
     padding: 0.3em 0.7em;
     white-space: nowrap;
