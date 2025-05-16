@@ -84,9 +84,9 @@ body {
     transform: translateX(-50%);
     background: rgba(100, 180, 255, 0.18);
     color: #222;
-    font-size: 0.5em;
+    font-size: 0.3em;
     border-radius: 6px;
-    padding: 0.3em 0.7em;
+    padding: 0.3em 0.em;
     white-space: nowrap;
     z-index: 20;
     pointer-events: none;
