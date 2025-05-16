@@ -56,11 +56,11 @@ $RECYCLE.BIN/
 .Trash-*
 .nfs*
 
-# Audio files
-audio/
-*.wav
-*.mp3
-*.ogg
+## Audio files
+#audio/
+#*.wav
+#*.mp3
+#*.ogg
 
 # Logs
 *.log
