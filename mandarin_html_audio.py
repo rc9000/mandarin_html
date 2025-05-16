@@ -59,7 +59,7 @@ def process_html_file(html_file):
         ssml_content = f"""<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" 
             xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="zh-CN">
             <voice name="zh-CN-YunxiNeural"><s /><mstts:express-as role="YoungAdultMale" style="narration-relaxed">
-            <prosody rate="-2.00%" volume="+20.00%">{chinese_text}</prosody></mstts:express-as><s />
+            <prosody rate="-42.00%" volume="+20.00%">{chinese_text}</prosody></mstts:express-as><s />
             </voice>
         </speak>
         """
