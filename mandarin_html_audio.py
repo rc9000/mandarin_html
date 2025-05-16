@@ -47,8 +47,10 @@ def process_html_file(html_file):
     
     # Process each sentence
     for sentence in sentences:
-        # Get the Chinese text (excluding the period)
-        chinese_text = ''.join(word.text for word in sentence.find_all('span', class_='word') if word.text != '。')
+        # Get the Chinese text (including the period)
+        chinese_text = ''.join(word.text for word in sentence.find_all('span', class_='word'))
+        # Remove all whitespace
+        chinese_text = ''.join(chinese_text.split())
         translation = sentence.get('data-translation', '')
         
         if not translation:
@@ -56,13 +58,13 @@ def process_html_file(html_file):
             continue
             
         # Create SSML content
-        ssml_content = f"""<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" 
-            xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="zh-CN">
+        ssml_content = f"""<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="zh-CN">
             <voice name="zh-CN-YunxiNeural"><s /><mstts:express-as role="YoungAdultMale" style="narration-relaxed">
             <prosody rate="-42.00%" volume="+20.00%">{chinese_text}</prosody></mstts:express-as><s />
             </voice>
-        </speak>
-        """
+            </speak>"""
+
+        print(ssml_content)
         
         # Generate output filename using translation
         safe_translation = sanitize_filename(translation)
