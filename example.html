@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandarin Text Example</title>
+    <link rel="stylesheet" href="mandarin_html.css">
+</head>
+<body>
+    <div class="content">
+        <span class="sentence" 
+              data-translation="I am Chinese." 
+              data-audio="audio/example.html.1.wav">
+            <button class="play-button" onclick="playAudio(this)">▶</button>
+            <span class="word" data-translation="I"           data-pinyin="wǒ">我</span>
+            <span class="word" data-translation="am"          data-pinyin="shì">是</span>
+            <span class="word" data-translation="Chinese"     data-pinyin="zhōng guó rén">中国人</span>
+            <span class="word">。</span>
+        </span>
+        
+        <span class="sentence" 
+              data-translation="My garden is very beautiful." 
+              data-audio="audio/example.html.2.wav">
+            <button class="play-button" onclick="playAudio(this)">▶</button>
+            <span class="word" data-translation="my"          data-pinyin="wǒ">我</span>
+            <span class="word" data-translation="'s"          data-pinyin="de">的</span>
+            <span class="word" data-translation="garden"      data-pinyin="huā yuán">花园</span>
+            <span class="word" data-translation="very"        data-pinyin="hěn">很</span>
+            <span class="word" data-translation="beautiful"   data-pinyin="piào liang">漂亮</span>
+            <span class="word">。</span>
+        </span>
+    </div>
+    <script src="mandarin_html.js"></script>
+</body>
+</html> 
