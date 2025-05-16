@@ -1,24 +1,67 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Add translation popups to all words
+    // Add play buttons and audio elements to all sentences
+    document.querySelectorAll('.sentence').forEach(sentence => {
+        const translation = sentence.getAttribute('data-translation');
+        if (!translation) return;
+
+        // Create play button
+        const playButton = document.createElement('button');
+        playButton.className = 'play-button';
+        playButton.innerHTML = '▶';
+        playButton.title = 'Play audio';
+        
+        // Create audio element
+        const audio = document.createElement('audio');
+        const safeTranslation = translation.replace(/[^a-zA-Z0-9]/g, '_');
+        const audioPath = `audio/${window.location.pathname.split('/').pop()}.${safeTranslation}.wav`;
+        audio.src = audioPath;
+        
+        // Add click handler
+        playButton.addEventListener('click', function() {
+            // Stop any currently playing audio
+            document.querySelectorAll('audio').forEach(a => {
+                if (a !== audio) {
+                    a.pause();
+                    a.currentTime = 0;
+                }
+            });
+            
+            // Toggle play/pause
+            if (audio.paused) {
+                audio.play();
+                playButton.innerHTML = '⏸';
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                playButton.innerHTML = '▶';
+            }
+        });
+        
+        // Add ended event listener
+        audio.addEventListener('ended', function() {
+            playButton.innerHTML = '▶';
+        });
+        
+        // Add error handling
+        audio.addEventListener('error', function() {
+            console.error(`Error loading audio file: ${audioPath}`);
+            playButton.style.display = 'none';
+        });
+        
+        // Insert elements
+        sentence.insertBefore(playButton, sentence.firstChild);
+        sentence.appendChild(audio);
+    });
+
+    // Add word translations
     document.querySelectorAll('.word').forEach(word => {
         const translation = word.getAttribute('data-translation');
         const pinyin = word.getAttribute('data-pinyin');
-        
-        if (translation || pinyin) {
-            const popup = document.createElement('div');
-            popup.className = 'word-translation';
-            
-            let content = '';
-            if (translation) {
-                content += translation;
-            }
-            if (pinyin) {
-                if (content) content += ' ';
-                content += `[${pinyin}]`;
-            }
-            
-            popup.textContent = content;
-            word.appendChild(popup);
+        if (translation) {
+            const translationSpan = document.createElement('span');
+            translationSpan.className = 'word-translation';
+            translationSpan.textContent = pinyin ? `${translation} (${pinyin})` : translation;
+            word.appendChild(translationSpan);
         }
     });
 
@@ -26,10 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.sentence').forEach(sentence => {
         const translation = sentence.getAttribute('data-translation');
         if (translation) {
-            const translationDiv = document.createElement('div');
-            translationDiv.className = 'sentence-translation';
-            translationDiv.textContent = translation;
-            sentence.appendChild(translationDiv);
+            const translationSpan = document.createElement('span');
+            translationSpan.className = 'sentence-translation';
+            translationSpan.textContent = translation;
+            sentence.appendChild(translationSpan);
         }
     });
 });

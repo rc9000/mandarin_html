@@ -1,0 +1,12 @@
+{
+    "language": "mandarin",
+    "promptExtension": "When processing Mandarin text, follow these word segmentation rules:\n1. Treat common compound words as single units (e.g., '中国人', '花园', '漂亮')\n2. Treat particles and measure words as separate words (e.g., '的', '很')\n3. Treat single-character words as individual units (e.g., '我', '是')\n4. Maintain proper pinyin with tone marks for each word\n5. Provide accurate English translations for each word and the complete sentence",
+    "wordBoundaries": {
+        "rules": [
+            {
+                "pattern": "中国人",
+                "type": "word"
+            }
+        ]
+    }
+} 

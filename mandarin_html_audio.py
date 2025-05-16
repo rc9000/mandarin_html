@@ -4,6 +4,11 @@ import azure.cognitiveservices.speech as speechsdk
 import os, sys, re
 from bs4 import BeautifulSoup
 import argparse
+import re
+
+def sanitize_filename(s):
+    # Remove special characters and replace spaces with underscores
+    return re.sub(r'[^a-zA-Z0-9]', '_', s)
 
 def synthesize_ssml_to_wav(ssml_content, key, region, output_file):
     speech_config = speechsdk.SpeechConfig(subscription=key, region=region)
@@ -41,10 +46,15 @@ def process_html_file(html_file):
         sys.exit(1)
     
     # Process each sentence
-    for i, sentence in enumerate(sentences):
+    for sentence in sentences:
         # Get the Chinese text (excluding the period)
         chinese_text = ''.join(word.text for word in sentence.find_all('span', class_='word') if word.text != '。')
+        translation = sentence.get('data-translation', '')
         
+        if not translation:
+            print(f"Warning: No translation found for sentence: {chinese_text}")
+            continue
+            
         # Create SSML content
         ssml_content = f"""<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" 
             xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="zh-CN">
@@ -54,8 +64,9 @@ def process_html_file(html_file):
         </speak>
         """
         
-        # Generate output filename
-        output_file = os.path.join(audio_dir, f"{os.path.basename(html_file)}.{i+1}.wav")
+        # Generate output filename using translation
+        safe_translation = sanitize_filename(translation)
+        output_file = os.path.join(audio_dir, f"{os.path.basename(html_file)}.{safe_translation}.wav")
         
         # Synthesize if file doesn't exist
         if not os.path.exists(output_file):
