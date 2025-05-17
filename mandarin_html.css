@@ -64,7 +64,7 @@ body {
 }
 
 .sentence {
-    display: block;
+    display: block; /* remove to allow multiple sentences on the same line */
     margin: 2em 0;
     font-size: 2.2em;
     line-height: 1.8;
