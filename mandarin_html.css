@@ -69,28 +69,31 @@ body {
 
 .word {
     display: inline-block;
-    margin: 0 0.3em;
+    margin: 0 0.03em;
     cursor: pointer;
     position: relative;
     font-size: 2em;
     font-family: 'Ma Shan Zheng', cursive;
+    width: fit-content;
 }
 
 .word-translation {
     display: none;
     position: absolute;
-    left: 50%;
+    left: 0;
     bottom: 110%;
-    transform: translateX(-50%);
-    background: rgba(100, 180, 255, 0.18);
+    transform: none;
+    background: rgb(240, 248, 255);
     color: #222;
     font-size: 0.3em;
     border-radius: 6px;
-    padding: 0.3em 0.em;
+    padding: 0.3em 0.6em;
     white-space: nowrap;
     z-index: 20;
     pointer-events: none;
     font-family: system-ui, -apple-system, sans-serif;
+    min-width: max-content;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .word:hover .word-translation {
