@@ -82,21 +82,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const select = document.createElement('select');
     select.innerHTML = `
-        <option value="font-ma-shan-zheng">Ma Shan Zheng</option>
+        <option value="font-ma-shan-zheng" selected>Ma Shan Zheng</option>
         <option value="font-klee-one">Klee One</option>
-        <option value="font-zen-old-mincho" selected>Zen Old Mincho</option>
+        <option value="font-zen-old-mincho">Zen Old Mincho</option>
+        <option value="font-ibm-plex-sans-jp">IBM Plex Sans JP</option>
     `;
     
     fontSwitcher.appendChild(select);
     document.body.appendChild(fontSwitcher);
     
     // Set initial font class
-    document.body.classList.add('font-zen-old-mincho');
+    document.body.classList.add('font-ma-shan-zheng');
     
     // Handle font switching
     select.addEventListener('change', function() {
         // Remove all font classes
-        document.body.classList.remove('font-ma-shan-zheng', 'font-klee-one', 'font-zen-old-mincho');
+        document.body.classList.remove('font-ma-shan-zheng', 'font-klee-one', 'font-zen-old-mincho', 'font-ibm-plex-sans-jp');
         // Add selected font class
         document.body.classList.add(this.value);
     });

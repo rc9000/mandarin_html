@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap');
 
 .font-switcher {
     position: fixed;
@@ -36,6 +37,10 @@
 
 .font-zen-old-mincho .word {
     font-family: 'Zen Old Mincho', serif;
+}
+
+.font-ibm-plex-sans-jp .word {
+    font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
 .word {
