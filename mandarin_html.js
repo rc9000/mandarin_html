@@ -75,6 +75,31 @@ document.addEventListener('DOMContentLoaded', function() {
             sentence.appendChild(translationSpan);
         }
     });
+
+    // Create font switcher element
+    const fontSwitcher = document.createElement('div');
+    fontSwitcher.className = 'font-switcher';
+    
+    const select = document.createElement('select');
+    select.innerHTML = `
+        <option value="font-ma-shan-zheng">Ma Shan Zheng</option>
+        <option value="font-klee-one">Klee One</option>
+        <option value="font-zen-old-mincho" selected>Zen Old Mincho</option>
+    `;
+    
+    fontSwitcher.appendChild(select);
+    document.body.appendChild(fontSwitcher);
+    
+    // Set initial font class
+    document.body.classList.add('font-zen-old-mincho');
+    
+    // Handle font switching
+    select.addEventListener('change', function() {
+        // Remove all font classes
+        document.body.classList.remove('font-ma-shan-zheng', 'font-klee-one', 'font-zen-old-mincho');
+        // Add selected font class
+        document.body.classList.add(this.value);
+    });
 });
 
 // Global audio element

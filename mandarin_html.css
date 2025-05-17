@@ -1,4 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap');
+
+.font-switcher {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 1000;
+    background: white;
+    padding: 0.5em;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.font-switcher select {
+    padding: 0.3em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.font-switcher select:hover {
+    border-color: #666;
+}
+
+/* Font classes */
+.font-ma-shan-zheng .word {
+    font-family: 'Ma Shan Zheng', cursive;
+}
+
+.font-klee-one .word {
+    font-family: 'Klee One', cursive;
+}
+
+.font-zen-old-mincho .word {
+    font-family: 'Zen Old Mincho', serif;
+}
+
+.word {
+    display: inline-block;
+    margin: 0 0.03em;
+    cursor: pointer;
+    position: relative;
+    width: fit-content;
+
+    font-size: 2em;
+    /*font-family: 'Ma Shan Zheng', cursive;*/
+    /*font-family: 'Klee One', cursive;*/
+    font-family: 'Zen Old Mincho', serif;
+}
 
 body {
     /*max-width: 800px;*/
@@ -67,15 +118,8 @@ body {
     display: block;
 }
 
-.word {
-    display: inline-block;
-    margin: 0 0.03em;
-    cursor: pointer;
-    position: relative;
-    font-size: 2em;
-    font-family: 'Ma Shan Zheng', cursive;
-    width: fit-content;
-}
+
+
 
 .word-translation {
     display: none;
