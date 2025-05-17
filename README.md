@@ -1,6 +1,6 @@
 # mandarin_html
 
-This is some HTML/CSS/JS/Python I have been playing with, to take notes and practice words while learning Mandarin. You can give it a try on https://rc9000.github.io/mandarin_html/example-1.html
+This is some HTML/CSS/JS/Python I have been playing with, to take notes and practice words while learning Mandarin. You can give it a try on https://rc9000.github.io/mandarin_html/example-1.html or get everything from the [github repo](https://github.com/rc9000/mandarin_html).
 
  * write down text in a file like [example-1.html](example-1.html)
  * allows providing a sentence-level and word-level translation in the `data-translation` attributes, since just a word-by-word translation is not necessarily enough to understand the sentence 
