@@ -18,15 +18,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add click handler
         playButton.addEventListener('click', function() {
-            // Stop any currently playing audio
+            // First stop any currently playing audio
             document.querySelectorAll('audio').forEach(a => {
-                if (a !== audio) {
+                if (a.playing) {
                     a.pause();
                     a.currentTime = 0;
                 }
             });
+
+            // Reset all play buttons
+            document.querySelectorAll('.play-button').forEach(button => {
+                button.innerHTML = '▶';
+            });
             
-            // Toggle play/pause
+            // Toggle play/pause for the clicked button
             if (audio.paused) {
                 audio.play();
                 playButton.innerHTML = '⏸';
