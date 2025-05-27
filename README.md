@@ -2,7 +2,7 @@
 
 This is some HTML/CSS/JS/Python I have been playing with, to take notes and practice words while learning Mandarin. You can give it a try on https://rc9000.github.io/mandarin_html/example-1.html or get everything from the [github repo](https://github.com/rc9000/mandarin_html).
 
- * write down text in a file like [example-1.html](example-1.html)
+ * write down text in a file like [example-1.html](example-1.html) or [example-2.html](example-2.html)
    * wrap sentences into `<span class="sentence"></span>`
    * wrap sentences into `<span class="word"></span>`
    * include `mandarin_html.css` and `mandarin_html.js`
