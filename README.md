@@ -11,6 +11,6 @@ This is some HTML/CSS/JS/Python I have been playing with, to take notes and prac
    * e.g. 你看看这个 = you look look this (measure word) = "check this out"
  * allows providing pinyin in `data-pinyin`
  * pinyin and translation are only shown when hovering over the text
- * [make_html_audio.py](make_html_audio.py) allows to generate audio clips for each sentence in a file via Azure Speech Studio
+ * [mandarin_html_audio.py](mandarin_html_audio.py) allows to generate audio clips for each sentence in a file via Azure Speech Studio
    * how to get an Azure account and Speech Services key is not explained here, see https://speech.microsoft.com/ for details
    * once you have a key for a region, create a venv with the requirements and launch the script as e.g. `SPEECH_KEY=1fd0... SPEECH_REGION=swedencentral ./mandarin_html_audio.py example-1.html` 
