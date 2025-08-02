@@ -1,35 +1,14 @@
-#!/bin/bash
+#!/bin/bash -eu
 
-# Source the secret environment file
-if [ -f "../secret-env.sh" ]; then
-    echo "Sourcing ../secret-env.sh..."
-    source ../secret-env.sh
-else
-    echo "Warning: ../secret-env.sh not found"
-fi
+# Source the secret environment file - sample in this directory
+source ../secret-env.sh
 
-# Activate virtual environment
-if [ -d "venv" ]; then
-    echo "Activating virtual environment..."
-    source venv/bin/activate
-else
-    echo "Error: venv directory not found"
-    exit 1
-fi
+source venv/bin/activate
 
-# Check if Python script exists
-if [ ! -f "mandarin_html_audio.py" ]; then
-    echo "Error: mandarin_html_audio.py not found"
-    exit 1
-fi
-
-# Process all HTML files
 echo "Processing HTML files..."
 for html_file in *.html; do
-    if [ -f "$html_file" ]; then
-        echo "Processing $html_file..."
-        python mandarin_html_audio.py "$html_file"
-    fi
+    echo "Processing $html_file..."
+    python mandarin_html_audio.py "$html_file"
 done
 
 echo "Done processing all HTML files." 
