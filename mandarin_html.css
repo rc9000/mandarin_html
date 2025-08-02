@@ -152,4 +152,26 @@ body {
 .word:hover {
     background-color: #f0f8ff;
     border-radius: 3px;
-} 
+}
+
+.sentence-annotation {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2.2em;
+    font-size: 0.35em;
+    color: #999;
+    background: rgba(200, 200, 200, 0.4);
+    border-radius: 6px;
+    padding: 0.3em 0.8em;
+    text-align: left;
+    font-style: italic;
+    z-index: 10;
+    pointer-events: none;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.sentence:hover .sentence-annotation {
+    display: block;
+}

@@ -81,6 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Add sentence annotations
+    document.querySelectorAll('.sentence').forEach(sentence => {
+        const annotation = sentence.getAttribute('data-annotation');
+        if (annotation) {
+            const annotationSpan = document.createElement('span');
+            annotationSpan.className = 'sentence-annotation';
+            annotationSpan.textContent = annotation;
+            sentence.appendChild(annotationSpan);
+        }
+    });
+
     // Create font switcher element
     const fontSwitcher = document.createElement('div');
     fontSwitcher.className = 'font-switcher';
